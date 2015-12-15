@@ -5,7 +5,7 @@ feature 'create a new link' do
     fill_in('title', :with => 'Google')
     click_button("Submit")
     within 'ul#links' do
-    expect(page).to have_content "Google"
+      expect(page).to have_content "Google"
+    end
   end
- end
 end
