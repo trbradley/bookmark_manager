@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './app/data_mapper_setup'
@@ -6,7 +6,6 @@ require './app/models/link'
 require './app/models/tag'
 
 class Manager < Sinatra::Base
-
   get '/links' do
     @links = Link.all
     @tags = Tag.all
