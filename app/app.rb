@@ -25,5 +25,9 @@ class Manager < Sinatra::Base
     redirect '/links'
   end
 
+  get '/tags/bubbles' do
+    erb(:'tags/bubbles')
+  end
+
   run! if app_file == $0
 end
