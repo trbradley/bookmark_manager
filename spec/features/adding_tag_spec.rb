@@ -23,7 +23,7 @@ feature 'Adding tags' do
     visit '/links/new'
     fill_in 'url',   with: 'http://www.gmail.com'
     fill_in 'title', with: 'Gmail'
-    fill_in 'tags',  with: 'search, email'
+    fill_in 'tags',  with: 'search email'
     click_button 'Submit'
 
     link = Link.first
