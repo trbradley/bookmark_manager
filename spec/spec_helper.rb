@@ -2,8 +2,8 @@ ENV["RACK_ENV"] = "test"
 
 require 'capybara/rspec'
 require './app/app'
-require './app/models/link'
 require 'database_cleaner'
+require 'web_helper.rb'
 Capybara.app = Manager
 
 RSpec.configure do |config|
