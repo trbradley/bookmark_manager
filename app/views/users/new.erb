@@ -3,14 +3,14 @@
 <head>
 </head>
 <body>
-  <% if flash[:pw_error] %>
-    <%= flash[:pw_error] %>
-  <% end %>
+  
+  <%= flash[:pw_error] %>
+
   <h1>Please sign up</h1>
 
   <form action='/users' method='post'>
     <label for='email'>
-      Email: <input name='email' type='text'>
+      Email: <input name='email' type='text' value='<%=@user.email%>'>
     </label>
     <label for='password'>
       Password: <input name='password' type='password'>
