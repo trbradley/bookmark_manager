@@ -3,6 +3,9 @@
 <head>
 </head>
 <body>
+  <% if flash[:pw_error] %>
+    <%= flash[:pw_error] %>
+  <% end %>
   <h1>Please sign up</h1>
 
   <form action='/users' method='post'>

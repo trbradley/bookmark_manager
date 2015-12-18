@@ -1,10 +1,12 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/data_mapper_setup'
 
 class Manager < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   set :session_secret, 'super secret'
 
   helpers do
@@ -50,6 +52,7 @@ class Manager < Sinatra::Base
       session[:user_id] = user.id
       redirect '/links'
     else
+      flash[:pw_error] = 'Password and confirmation do not match'
       redirect '/users/new'
     end
   end
