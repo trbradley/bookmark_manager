@@ -2,13 +2,22 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'sinatra'
-gem 'rspec'
-gem 'capybara'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'dm-migrations'
-gem 'database_cleaner'
-gem 'rake'
-gem 'bcrypt'
-gem 'pry-byebug'
+group :production do
+  gem 'sinatra'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'bcrypt'
+  gem 'dm-migrations'
+  gem 'sinatra-flash'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'capybara'
+end
+
+group :development do
+  gem 'pry-byebug'
+  gem 'rake'
+end
