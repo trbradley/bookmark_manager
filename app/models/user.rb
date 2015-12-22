@@ -8,7 +8,7 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password

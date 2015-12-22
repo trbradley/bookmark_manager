@@ -10,4 +10,10 @@ feature 'User sign up' do
     expect(current_path).to eq('/users')
     expect(page).to have_content('Password and confirmation do not match')
   end
+
+  scenario 'user is required to fill email field' do
+    expect { no_email_sign_up }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    # expect(page).to have_content('Please enter an email address')
+  end
 end
