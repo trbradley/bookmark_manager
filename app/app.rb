@@ -46,14 +46,14 @@ class Manager < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+    @user = User.new(email: params[:email],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/links'
     else
-      flash.now[:pw_error] = 'Password and confirmation do not match'
+      flash.now[:error] = 'Password and confirmation do not match'
       erb :'users/new'
     end
   end
